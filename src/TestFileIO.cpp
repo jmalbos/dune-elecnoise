@@ -9,10 +9,19 @@
 #include <iostream>
 
 
+void PrintUsage(int argc, char const *argv[])
+{
+  std::cerr << "\n   Usage: " << argv[0] << " <input_file>\n" << std::endl;
+  std::exit(EXIT_FAILURE);
+}
+
+
 int main(int argc, char const *argv[])
 {
-  std::cout << "argc: " << argc    << std::endl;
-  std::cout << "argv: " << argv[1] << std::endl;
-  /* code */
-  return 0;
+  if (argc < 2) PrintUsage(argc, argv);
+
+  // We'll assume that the second command-line parameter is a valid input file
+  FileReader reader(argv[1]);
+
+  return EXIT_SUCCESS;
 }

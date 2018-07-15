@@ -6,12 +6,11 @@
 
 #include "FileIO.h"
 
+#include <iostream>
 
-FileIO::FileIO()
+
+FileReader::FileReader(char const * filename)
 {
-}
-
-
-FileIO::~FileIO()
-{
+  file_.open(filename, std::fstream::in);
+  if (file_.is_open()) std::cout << "Success!" << std::endl;
 }

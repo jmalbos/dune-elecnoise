@@ -8,14 +8,28 @@
 #ifndef FILE_IO
 #define FILE_IO
 
+#include <fstream>
 
-class FileIO
+
+class FileReader
 {
 public:
-  // Constructor
-  FileIO();
-  // Destructor
-  ~FileIO();
+  FileReader(char const *);
+  ~FileReader() {}
+
+private:
+  std::fstream file_;
+};
+
+
+class FileWriter
+{
+public:
+  FileWriter() {}
+  ~FileWriter() {}
+
+private:
+  std::fstream ofile;
 };
 
 #endif
