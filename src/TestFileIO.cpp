@@ -23,5 +23,7 @@ int main(int argc, char const *argv[])
   // We'll assume that the second command-line parameter is a valid input file
   FileReader reader(argv[1]);
 
+  for (int i=0; i<100; ++i) reader.Read();
+
   return EXIT_SUCCESS;
 }

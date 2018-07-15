@@ -15,7 +15,9 @@ class FileReader
 {
 public:
   FileReader(char const *);
-  ~FileReader() {}
+  ~FileReader();
+
+  void Read();
 
 private:
   std::fstream file_;
