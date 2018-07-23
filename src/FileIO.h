@@ -17,7 +17,7 @@ public:
   FileReader(char const *);
   ~FileReader();
 
-  void Read();
+  void ReadEvent();
 
 private:
   std::fstream file_;

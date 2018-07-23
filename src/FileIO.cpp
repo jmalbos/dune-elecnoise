@@ -24,7 +24,7 @@ FileReader::~FileReader()
 }
 
 
-void FileReader::Read()
+void FileReader::ReadEvent()
 {
   std::string line, buffer;
   std::vector<std::string> words;
