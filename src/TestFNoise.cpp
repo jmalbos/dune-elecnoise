@@ -1,3 +1,12 @@
+/// ----------------------------------------------------------------------------
+/// File     : TestFileIO.cpp
+/// Info     :
+/// Authors  : Babak Abi, Justo Martin-Albo, Miquel Nebot
+/// Creation : 9 July 2018
+/// ----------------------------------------------------------------------------
+
+#include "fnoise.h"
+
 # include <cstdlib>
 # include <iostream>
 # include <iomanip>
@@ -8,7 +17,6 @@
 
 using namespace std;
 
-# include "fnoise.h"
 
 int main ( );
 void test01 ( int n, double q_d, double alpha, int seed );
@@ -22,13 +30,10 @@ int main ( ){
   int seed_init;
 
   timestamp ( );
-  cout << "\n";
-  cout << "hey Babak this is noise you like \n";
-  cout << "  C++ version\n";
   cout << "  Test the fnoise library.\n";
 
-  n = 128;
-  q_d = 1.0;
+  n = 4492;
+  q_d = 5.0;
   alpha = 0.00;
   seed_init = 123456789;
 
@@ -51,7 +56,6 @@ int main ( ){
 //****************************************************************************80
 //****************************************************************************80
  /*
- for Babak use as bellow :
    Purpose:
      TEST01 calls F_ALPHA with particular parameters.
    Parameters:
