@@ -15,8 +15,6 @@
 # include <fstream>
 # include <ctime>
 
-using namespace std;
-
 
 int main ( );
 void test01 ( int n, double q_d, double alpha, int seed );
@@ -30,7 +28,7 @@ int main ( ){
   int seed_init;
 
   timestamp ( );
-  cout << "  Test the fnoise library.\n";
+  std::cout << "  Test the fnoise library.\n";
 
   n = 4492;
   q_d = 5.0;
@@ -45,10 +43,10 @@ int main ( ){
 //
 //  finished.
 //
-  cout << "\n";
-  cout << "1/f noise :\n";
-  cout << "  Normal end of execution.\n";
-  cout << "\n";
+  std::cout << "\n";
+  std::cout << "1/f noise :\n";
+  std::cout << "  Normal end of execution.\n";
+  std::cout << "\n";
   timestamp ( );
 
   return 0;
@@ -66,8 +64,8 @@ int main ( ){
  */
 void test01 ( int n, double q_d, double alpha, int seed_init ) {
   int i;
-  string output_filename;
-  ofstream output_unit;
+  std::string output_filename;
+  std::ofstream output_unit;
   int seed;
   double *x;
 
@@ -75,12 +73,12 @@ void test01 ( int n, double q_d, double alpha, int seed_init ) {
 //
 //  Report parameters.
 //
-  cout << "\n";
-  cout << "TEST01:\n";
-  cout << "  Generating " << n << " sample points.\n";
-  cout << "  1/F^ALPHA noise has ALPHA = " << alpha << "\n";
-  cout << "  Variance is " << q_d << "\n";
-  cout << "  Initial random number seed = " << seed_init << "\n";
+  std::cout << "\n";
+  std::cout << "TEST01:\n";
+  std::cout << "  Generating " << n << " sample points.\n";
+  std::cout << "  1/F^ALPHA noise has ALPHA = " << alpha << "\n";
+  std::cout << "  Variance is " << q_d << "\n";
+  std::cout << "  Initial random number seed = " << seed_init << "\n";
 
   seed = seed_init;
 
@@ -100,7 +98,7 @@ void test01 ( int n, double q_d, double alpha, int seed_init ) {
   }
   output_unit.close ( );
 
-  cout << "  Data written to file \"" << output_filename << "\"\n";
+  std::cout << "  Data written to file \"" << output_filename << "\"\n";
 
   delete [] x;
 

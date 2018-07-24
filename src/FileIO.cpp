@@ -24,20 +24,26 @@ FileReader::~FileReader()
 }
 
 
-void FileReader::ReadEvent()
+void FileReader::ReadEvent(std::vector<std::vector<double>>& samples)
 {
-  std::string line, buffer;
-  std::vector<std::string> words;
+  int i=0;
 
-  // Let's read the first line and store it in a string
-  // that we'll later split in words
-  std::getline(file_, line);
-  std::stringstream ss(line);
+  while (!file_.eof()) {
 
-  while (ss >> buffer) {
-    //std::cout << buffer << std::endl;
-    words.push_back(buffer);
+    std::cout << i << std::endl; ++i;
+
+    std::string line, word;
+    std::vector<std::string> words;
+
+    // Read a line from the file and store it in a string
+    // that we'll later split in words
+    std::getline(file_, line);
+    std::stringstream ss(line);
+
+    while (ss >> word) {
+      words.push_back(word);
+    }
+
+    //std::cout << "Number of words: " << words.size() << std::endl;
   }
-
-  std::cout << "Number of words: " << words.size() << std::endl;
 }

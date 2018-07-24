@@ -1,7 +1,7 @@
 /// ----------------------------------------------------------------------------
 /// File     : FileIO.h
 /// Info     :
-/// Author   : Justo Martin-Albo
+/// Authors  : Babak Abi, Justo Martin-Albo, Miquel Nebot
 /// Creation : 9 July 2018
 /// ----------------------------------------------------------------------------
 
@@ -9,6 +9,13 @@
 #define FILE_IO
 
 #include <fstream>
+#include <vector>
+
+
+class Event
+{
+public:
+};
 
 
 class FileReader
@@ -17,10 +24,11 @@ public:
   FileReader(char const *);
   ~FileReader();
 
-  void ReadEvent();
+  void ReadEvent(std::vector<std::vector<double>>&);
 
 private:
   std::fstream file_;
+  std::vector<double> buffer_;
 };
 
 
