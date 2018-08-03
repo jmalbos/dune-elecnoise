@@ -1,21 +1,15 @@
-/// ----------------------------------------------------------------------------
-/// File     : FileIO.h
-/// Info     :
-/// Authors  : Babak Abi, Justo Martin-Albo, Miquel Nebot
-/// Creation : 9 July 2018
-/// ----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// File     : FileIO.h
+// Info     :
+// Authors  : Babak Abi, Justo Martin-Albo, Miquel Nebot
+// Creation : 9 July 2018
+// -----------------------------------------------------------------------------
 
 #ifndef FILE_IO
 #define FILE_IO
 
 #include <fstream>
 #include <vector>
-
-
-class Event
-{
-public:
-};
 
 
 class FileReader

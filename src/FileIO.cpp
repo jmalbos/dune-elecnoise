@@ -26,24 +26,27 @@ FileReader::~FileReader()
 
 void FileReader::ReadEvent(std::vector<std::vector<double>>& samples)
 {
-  int i=0;
+  // Start reading a line from the file storing it in the string buffer
+  std::string buffer_;
+  std::getline(file_, buffer_);
 
   while (!file_.eof()) {
 
-    std::cout << i << std::endl; ++i;
+    // We'll split now the line in words using a stream
+    std::stringstream ss(buffer_);
 
-    std::string line, word;
-    std::vector<std::string> words;
+    // The first two elements in every line are the event number
+    // and the channel number
+    int event_number, channel_number;
+    ss >> event_number >> channel_number;
 
-    // Read a line from the file and store it in a string
-    // that we'll later split in words
-    std::getline(file_, line);
-    std::stringstream ss(line);
+    // The remaining elements are the waveform samples
+    double sample;
+    std::vector<double> waveform;
 
-    while (ss >> word) {
-      words.push_back(word);
-    }
+    while (ss >> sample) waveform.push_back(sample);
 
-    //std::cout << "Number of words: " << words.size() << std::endl;
+    // Try to read the next line now to check whether we've reached the eof
+    std::getline(file_, buffer_);
   }
 }

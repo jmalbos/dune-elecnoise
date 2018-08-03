@@ -13,5 +13,4 @@ double *r8vec_sftb ( int n, double azero, double a[], double b[] );
 void r8vec_sftf ( int n, double r[], double *azero, double a[], double b[] );
 void timestamp ( );
 
-
 #endif
