@@ -25,5 +25,8 @@ int main(int argc, char const *argv[])
   std::vector<std::vector<double>> v;
   reader.ReadEvent(v);
 
+  FileWriter writer("test.txt");
+  writer.WriteEvent(v);
+
   return EXIT_SUCCESS;
 }

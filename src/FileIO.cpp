@@ -11,10 +11,13 @@
 #include <iostream>
 
 
-FileReader::FileReader(char const * filename)
+////////////////////////////////////////////////////////////////////////////////
+
+FileReader::FileReader(std::string filename)
 {
   file_.open(filename, std::fstream::in);
-  if (file_.is_open()) std::cout << "File opened successfully!" << std::endl;
+  if (file_.is_open())
+    std::cout << "[FileReader] File opened successfully." << std::endl;
 }
 
 
@@ -46,7 +49,47 @@ void FileReader::ReadEvent(std::vector<std::vector<double>>& samples)
 
     while (ss >> sample) waveform.push_back(sample);
 
+    samples.push_back(std::move(waveform));
+
     // Try to read the next line now to check whether we've reached the eof
     std::getline(file_, buffer_);
   }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+FileWriter::FileWriter(std::string filename)
+{
+  file_.open(filename, std::fstream::out);
+  if (file_.is_open())
+    std::cout << "[FileWriter] File opened successfully." << std::endl;
+}
+
+
+FileWriter::~FileWriter()
+{
+  file_.close();
+}
+
+
+void FileWriter::WriteEvent(std::vector<std::vector<double>>& samples)
+{
+  // TODO: Consider more than one event per file
+  int event_number = 0;
+
+  // Loop through the channels
+  int channel_id = 0;
+  for (const std::vector<double>& channel: samples) {
+
+    file_ << event_number << " " << channel_id << " ";
+
+    for (double sample: channel) {
+      file_ << sample << " ";
+    }
+
+    file_ << std::endl;
+    ++channel_id;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////

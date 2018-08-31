@@ -10,12 +10,13 @@
 
 #include <fstream>
 #include <vector>
+#include <string>
 
 
 class FileReader
 {
 public:
-  FileReader(char const *);
+  FileReader(std::string);
   ~FileReader();
 
   void ReadEvent(std::vector<std::vector<double>>&);
@@ -29,11 +30,13 @@ private:
 class FileWriter
 {
 public:
-  FileWriter() {}
-  ~FileWriter() {}
+  FileWriter(std::string);
+  ~FileWriter();
+
+  void WriteEvent(std::vector<std::vector<double>>&);
 
 private:
-  std::fstream ofile;
+  std::fstream file_;
 };
 
 #endif
