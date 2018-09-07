@@ -5,8 +5,9 @@
 // Creation : 3 Aug 2018
 // -----------------------------------------------------------------------------
 
-#include "fnoise.h"
-#include "FileIO.h"
+#include "FileIO.h" //file handling
+#include "fnoise.h" //generate the colored noise. To be repalced by PinkNoiseGenerator
+#include "HarmonicNoiseGenerator.h" //generate the harmonic noise
 
 #include <iostream>
 
@@ -30,20 +31,23 @@ int main(int argc, char const *argv[])
 
 
   // Create here a noise generator object
+  // PinkNoiseGenerator
   // NoiseGenerator generator;
-
   // generator.Generate(v);
 
-  // NoiseGenerator generator;
-  // generator.Do(v);
+  // HarmonicNoiseGenerator
+  HarmonicNoiseGenerator generator;
+  double a=1.1, phi=0.86;
+  generator.Generate(v, a, phi);
+  
 
   // NoiseGenerator generator;
   // generator.Do(v);
 
 
   // Write new waveforms to disk
-  // FileWriter writer;
-  // writer.WriteEvent(v);
+  FileWriter writer(argv[2]);
+  writer.WriteEvent(v);
 
   return EXIT_SUCCESS;
 }
