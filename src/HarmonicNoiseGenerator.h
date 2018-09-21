@@ -17,7 +17,7 @@ public:
   HarmonicNoiseGenerator();
   ~HarmonicNoiseGenerator();
 
-  void Generate(std::vector<std::vector<double>>&, double a, double phi);
+  void Generate(std::vector<std::vector<double>>&, double a, double phi, std::pair<int,int> UChannels, std::pair<int,int> VChannels, std::pair<int,int> XChannels);
 
 private:
   std::vector<double> Sinusoidal(double a, double phi);
