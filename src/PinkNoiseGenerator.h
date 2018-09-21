@@ -7,3 +7,18 @@
 
 #ifndef PINK_NOISE_GENERATOR_H
 #define PINK_NOISE_GENERATOR_H
+
+#include "BaseNoiseGenerator.h"
+
+
+class PinkNoiseGenerator: public BaseNoiseGenerator
+{
+public:
+  PinkNoiseGenerator();
+  virtual ~PinkNoiseGenerator();
+
+  virtual void Generate(std::vector<std::vector<double>>&);
+
+};
+
+#endif

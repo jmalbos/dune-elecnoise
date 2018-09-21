@@ -8,14 +8,15 @@
 #ifndef BASE_NOISE_GENERATOR_H
 #define BASE_NOISE_GENERATOR_H
 
+#include <vector>
 
 class BaseNoiseGenerator
 {
 public:
-  BaseNoiseGenerator();
-  virtual ~BaseNoiseGenerator();
+  BaseNoiseGenerator() {}
+  virtual ~BaseNoiseGenerator() {}
 
-  virtual Generate(std::vector<std::vector<double>>&) = 0;
+  virtual void Generate(std::vector<std::vector<double>>&) = 0;
 };
 
 
