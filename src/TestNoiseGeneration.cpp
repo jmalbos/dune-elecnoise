@@ -30,17 +30,20 @@ int main(int argc, char const *argv[])
   std::vector<std::vector<double>> v;
   reader.ReadEvent(v);
 
-
+  std::pair<int,int> UChannels (800,40); //Channel arrangement in FEB
+  std::pair<int,int> VChannels (800,40);
+  std::pair<int,int> XChannels (960,48);
 
   // Create here a noise generator object
   // PinkNoiseGenerator
-  PinkNoiseGenerator generator;
-  generator.Generate(v);
+  //PinkNoiseGenerator generator;
+  //generator.Generate(v);
 
   // HarmonicNoiseGenerator
-  //HarmonicNoiseGenerator generator;
-  //double a=1.1, phi=0.86;
-  //generator.Generate(v, a, phi);
+  HarmonicNoiseGenerator generator;
+  double a=1.1, phi=0.86;
+  generator.Generate(v, a, phi, UChannels, VChannels, XChannels);
+
 
 
   // NoiseGenerator generator;
