@@ -36,13 +36,12 @@ int main(int argc, char const *argv[])
 
   // Create here a noise generator object
   // PinkNoiseGenerator
-  //PinkNoiseGenerator generator;
-  //generator.Generate(v);
+  PinkNoiseGenerator generator;
+  generator.Generate(v);
 
   // HarmonicNoiseGenerator
-  HarmonicNoiseGenerator generator;
-  double a=1.1, phi=0.86;
-  generator.Generate(v, a, phi, UChannels, VChannels, XChannels);
+  HarmonicNoiseGenerator generatorH;
+  generatorH.Generate(v, UChannels, VChannels, XChannels);
 
 
 

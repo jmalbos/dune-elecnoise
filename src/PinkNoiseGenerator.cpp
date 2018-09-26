@@ -22,7 +22,7 @@ PinkNoiseGenerator::~PinkNoiseGenerator()
 
 void PinkNoiseGenerator::Generate(std::vector<std::vector<double>>& v)
 {
-  std::cout << v.size() << std::endl;
+  std::cout << v.size() << " Channels" << std::endl;
 
   // Loop through channels
   for (int i=0; i<v.size(); ++i) {
@@ -37,12 +37,12 @@ void PinkNoiseGenerator::Generate(std::vector<std::vector<double>>& v)
 
     // Loop through samples
     for (int j=0; j<v[i].size(); ++j) {
-      std::cout << v[i][j] << std::endl;
+      //std::cout << v[i][j] << std::endl;
 
       x = f_alpha ( n, q_d, alpha, &seed_init );
 
       v[i][j] += x[j];
-      std::cout << v[i][j] << std::endl;
+      //std::cout << v[i][j] << std::endl;
     }
 
     delete [] x;
