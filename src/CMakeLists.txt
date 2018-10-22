@@ -6,6 +6,7 @@ add_executable(TestNoiseGeneration  TestNoiseGeneration.cpp
                                     FileIO.cpp
                                     fnoise.cpp
                                     HarmonicNoiseGenerator.cpp
-                                    PinkNoiseGenerator.cpp)
+                                    PinkNoiseGenerator.cpp
+                                    PedestalNoiseGenerator.cpp)
 
 add_executable(TestHarmonicNoiseGenerator TestHarmonicNoiseGenerator.cpp HarmonicNoiseGenerator.cpp)
