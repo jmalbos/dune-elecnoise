@@ -56,7 +56,7 @@ for (std::vector<std::vector<double>>::iterator it = samples.begin() ; it != sam
 	 		for (int i = 0; i < chanelSamples_size; i++) //4492
 	 			{
 	 			//std::cout << "Add the harmonic noise in channel: " << i << std::endl;
-	 			samples[std::distance(samples.begin(), it)][i]=	 samples[std::distance(samples.begin(), it)][i] + v_noise[i];
+	 			samples[std::distance(samples.begin(), it)][i]=	 samples[std::distance(samples.begin(), it)][i] + v_noise[i]; //*1.2 80% UV over the X Channel
 	 			}
 	 	}
 	 	else 											//XChannels [1600,2560] 48 channels per FEMB//

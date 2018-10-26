@@ -6,6 +6,7 @@
 // -----------------------------------------------------------------------------
 
 #include "FileIO.h" //file handling
+#include "VectorNoiseGenerator.h"
 
 #include <iostream>
 
@@ -24,6 +25,7 @@ int main(int argc, char const *argv[])
   // We'll assume that the second command-line parameter is a valid input file
   FileReader reader(argv[1]);
   std::vector<std::vector<double>> v;
+  std::vector<std::vector<double>> v_noise;
   reader.ReadEvent(v);
 
   //Obtain the number of APAs, number of Channels, number of samples
@@ -36,7 +38,15 @@ int main(int argc, char const *argv[])
   //Generate noise vector of vector per APA
   VectorNoiseGenerator generator;
   //Add the vector noise to the waveform readed
-  v = v + generator.Generate(NCh,NSmpl);
+  v_noise = generator.Generate(NCh,NSmpl);
+  for (std::vector<std::vector<double>>::iterator it = v.begin() ; it != v.end(); ++it)
+  {
+    for (int i = 0; i < NSmpl; i++) 
+        {
+      
+        v[std::distance(v.begin(), it)][i]=  v[std::distance(v.begin(), it)][i] + v_noise[std::distance(v.begin(), it)][i];
+    }
+  }
   //}
   
 

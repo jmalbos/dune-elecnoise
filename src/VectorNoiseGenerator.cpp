@@ -11,6 +11,15 @@
 #include "PedestalNoiseGenerator.h"
 #include "PinkNoiseGenerator.h"
 
+VectorNoiseGenerator::VectorNoiseGenerator()
+{
+	std::cout << "Begin VectorNoiseGenerator module" << std::endl;
+}
+
+VectorNoiseGenerator::~VectorNoiseGenerator()
+{
+	
+}
 
 std::vector<std::vector<double>> VectorNoiseGenerator::Generate(int NCh,int NSmpl)
 {
